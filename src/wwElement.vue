@@ -19,8 +19,8 @@ import { usePagination } from 'vue-request';
 import axios from 'axios';
 
 // Define the component name and properties for WeWeb compatibility
-const AntTable = defineComponent({
-  name: 'AntTable',
+const AntTableElement = defineComponent({
+  name: 'AntTableElement',
   props: {
     content: {
       type: Object,
@@ -117,10 +117,9 @@ const AntTable = defineComponent({
   },
 });
 
-export default AntTable;
+export default AntTableElement;
 </script>
 
 <style scoped>
 /* Add any custom styles here */
 </style>
-
