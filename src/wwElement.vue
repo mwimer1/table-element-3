@@ -45,6 +45,7 @@
 <script setup>
 import { defineComponent, ref } from 'vue';
 import { SmileOutlined, DownOutlined } from '@ant-design/icons-vue';
+import { Table, Tag, Divider } from 'ant-design-vue';
 
 const columns = ref([
   {
@@ -102,6 +103,9 @@ export default defineComponent({
   components: {
     SmileOutlined,
     DownOutlined,
+    'a-table': Table,
+    'a-tag': Tag,
+    'a-divider': Divider,
   },
   setup() {
     return {
