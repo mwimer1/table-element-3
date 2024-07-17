@@ -1,4 +1,4 @@
-export default {
+XXXXXXXXXXXXXXXXXxport default {
   inherit: {
     type: 'ww-text',
     exclude: ['text'],
