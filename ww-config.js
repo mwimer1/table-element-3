@@ -4,11 +4,12 @@ export default {
     exclude: ['text'],
   },
   editor: {
-    label: { en: 'Custom Table', fr: 'Tableau Personnalisé' },
+    label: { en: 'Ant Design Table', fr: 'Tableau Ant Design' },
     icon: 'table',
     customSettingsPropertiesOrder: [
-      'headers',
-      'rows',
+      'columns',
+      'dataSource',
+      'pagination',
     ],
     customStylePropertiesOrder: [
       'borderColor',
@@ -22,21 +23,48 @@ export default {
     { name: 'rowClick', label: { en: 'On row click' }, event: { row: '' }, default: true },
   ],
   properties: {
-    headers: {
-      label: { en: 'Headers' },
+    columns: {
+      label: { en: 'Columns' },
       type: 'Array',
       bindable: true,
       responsive: true,
-      defaultValue: [],
+      defaultValue: [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name',
+          sorter: true,
+        },
+        {
+          title: 'Gender',
+          dataIndex: 'gender',
+          key: 'gender',
+          filters: [
+            {
+              text: 'Male',
+              value: 'male',
+            },
+            {
+              text: 'Female',
+              value: 'female',
+            },
+          ],
+        },
+        {
+          title: 'Email',
+          dataIndex: 'email',
+          key: 'email',
+        },
+      ],
       /* wwEditor:start */
       bindingValidation: {
         type: 'array',
-        tooltip: 'An array of strings representing table headers',
+        tooltip: 'An array of objects representing table columns',
       },
       /* wwEditor:end */
     },
-    rows: {
-      label: { en: 'Rows' },
+    dataSource: {
+      label: { en: 'Data Source' },
       type: 'Array',
       bindable: true,
       responsive: true,
@@ -44,7 +72,24 @@ export default {
       /* wwEditor:start */
       bindingValidation: {
         type: 'array',
-        tooltip: 'An array of arrays representing table rows',
+        tooltip: 'An array of objects representing table data',
+      },
+      /* wwEditor:end */
+    },
+    pagination: {
+      label: { en: 'Pagination' },
+      type: 'Object',
+      bindable: true,
+      responsive: true,
+      defaultValue: {
+        total: 200,
+        current: 1,
+        pageSize: 10,
+      },
+      /* wwEditor:start */
+      bindingValidation: {
+        type: 'object',
+        tooltip: 'An object representing pagination settings',
       },
       /* wwEditor:end */
     },
